@@ -1,0 +1,16 @@
+To optimize the performance of the query, the following indices should be set up:
+
+An index on the created_at column of the accounts table.
+SQL : CREATE INDEX IF NOT EXISTS idx_accounts_created_at ON public.accounts (created_at);
+
+An index on the created_at and account_id columns of the campaigns table.
+SQL : CREATE INDEX IF NOT EXISTS idx_campaigns_created_at_account_id ON public.campaigns (created_at, account_id);
+
+An index on the campaign_id and created_at columns of the clicks table.
+SQL : CREATE INDEX IF NOT EXISTS idx_clicks_campaign_id_created_at ON public.clicks (campaign_id, created_at);
+
+The above indices will improve the performance of the join operations and filtering conditions in the query.
+
+
+
+
